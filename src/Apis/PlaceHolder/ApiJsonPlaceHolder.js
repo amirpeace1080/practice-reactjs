@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, Row, Card, Button } from "react-bootstrap";
+import { Col, Container, Row, Card, Button, Spinner } from "react-bootstrap";
 
 const ApiJsonPlaceHolder = () => {
   const [posts, setPosts] = useState([]);
-  const loading = false;
+  const [loading, setLoading] = useState([]);
 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
@@ -17,9 +17,14 @@ const ApiJsonPlaceHolder = () => {
 
   return (
     <div>
+      {/* loading */}
+      <Spinner animation="border" role="status" setLoading={false}>
+        <span className="sr-only">Loading...</span>
+      </Spinner>
+      {/* end loading */}
       <Container>
         <Row>
-          {posts.map((post, index) => (
+          {posts.map((post) => (
             <Col lg={3} md={4} sm={6} xs={12}>
               <Card class="main-card">
                 <Card.Img
@@ -32,8 +37,8 @@ const ApiJsonPlaceHolder = () => {
                 </Card.Body>
                 <Card.Body>
                   <Card.Link href="#">
-                    <Link to={`/jsonPlaceHolder/${index}`}>
-                      <Button>More</Button>
+                    <Link>
+                    <Button>More</Button>
                     </Link>
                   </Card.Link>
                 </Card.Body>
