@@ -7,7 +7,7 @@ import { Col, Container, Row, Card, Button, Spinner } from "react-bootstrap";
 
 const ApiJsonPlaceHolder = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
@@ -18,9 +18,9 @@ const ApiJsonPlaceHolder = () => {
   return (
     <div>
       {/* loading */}
-      <Spinner animation="border" role="status" setLoading={}>
+      {/* <Spinner animation="border" role="status">
         <span className="sr-only">Loading...</span>
-      </Spinner>
+      </Spinner> */}
       {/* end loading */}
       <Container>
         <Row>
