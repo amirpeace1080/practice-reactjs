@@ -13,7 +13,7 @@ const App = () => {
       
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/jsonPlaceHolder" component={JsonPlaceHolder} />
+        <Route exact exact path="/jsonPlaceHolder" component={JsonPlaceHolder} />
         <Route path="/jsonPlaceHolder/:id" component={Post} />
       </Switch>
     </div>
